@@ -117,15 +117,17 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     func setupNavBarButtons() {
-        let searchImage = UIImage(named: "search")?.withRenderingMode(.alwaysOriginal)
+        let searchImage = UIImage(named: "search")?.scaleTo(CGSize(width: 25, height: 25))
         let searchBarButtonItem = UIBarButtonItem(image: searchImage, style: .plain
             , target: self, action: #selector(handleSearch))
+        searchBarButtonItem.tintColor = UIColor.white
         
-        let moreImage = UIImage(named: "more")?.withRenderingMode(.alwaysOriginal)
-        let moreButtonItem = UIBarButtonItem(image: moreImage, style: .plain
+        let moreImage = UIImage(named: "more")?.scaleTo(CGSize(width: 25, height: 25))
+        let moreBarButtonItem = UIBarButtonItem(image: moreImage, style: .plain
             , target: self, action: #selector(handleMore))
+        moreBarButtonItem.tintColor = UIColor.white
         
-        navigationItem.rightBarButtonItems = [moreButtonItem, searchBarButtonItem]
+        navigationItem.rightBarButtonItems = [moreBarButtonItem, searchBarButtonItem]
     }
     
     @objc func handleSearch() {

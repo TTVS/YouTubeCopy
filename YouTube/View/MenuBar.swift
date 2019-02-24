@@ -59,6 +59,7 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        //animation with dampening
 //        let x = CGFloat(indexPath.item) * frame.width / 4
 //        horizontalBarLeftAnchorConstraint?.constant = x
 //        
@@ -67,7 +68,6 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
 //        }, completion: nil)
         
         homeController?.scrollToMenuIndex(menuIndex: indexPath.item)
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

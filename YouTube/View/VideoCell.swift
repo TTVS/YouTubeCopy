@@ -38,7 +38,7 @@ class VideoCell : BaseCell {
                 let numberFormatter = NumberFormatter()
                 numberFormatter.numberStyle = .decimal
                 
-                let subtitleText = "\(channelName) - \(numberFormatter.string(from: numberOfViews)!)"
+                let subtitleText = "\(channelName) - \(numberFormatter.string(from: NSNumber(integerLiteral: Int(numberOfViews)))!)"
                 subtitleTextView.text = subtitleText
             }
             
@@ -52,7 +52,7 @@ class VideoCell : BaseCell {
                 
                 let estimatedRect = NSString(string: title).boundingRect(with: size, options: options, attributes: attributes, context: nil)
                 
-                if estimatedRect.size.height > 14 {
+                if estimatedRect.size.height >= 20 {
                     titleLabelHeightConstraint?.constant = 44
                 } else {
                     titleLabelHeightConstraint?.constant = 20

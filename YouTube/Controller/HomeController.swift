@@ -15,12 +15,9 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     let subscriptionCellId = "subscriptionCellId"
     let titles = ["Home", "Trending", "Subscriptions", "Account"]
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = UIColor.rgb(red: 230, green: 32, blue: 31)
@@ -36,8 +33,9 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         navigationItem.titleView = titleLabel
         
-        setupCollectionView()
         setupMenuBar()
+        setupCollectionView()
+        
         setupNavBarButtons()
     }
     
@@ -114,11 +112,11 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         mb.homeController = self
         return mb
     }()
-    
+
     private func setupMenuBar() {
         
         navigationController?.hidesBarsOnSwipe = true
-        
+
         let redView = UIView()
         redView.backgroundColor = UIColor.rgb(red: 230, green: 32, blue: 31)
         view.addSubview(redView)

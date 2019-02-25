@@ -24,6 +24,8 @@ class BaseCell: UICollectionViewCell {
 }
 
 class VideoCell : BaseCell {
+    
+    var titleLabelHeightConstraint: NSLayoutConstraint?
 
     var video: Video? {
         didSet {
@@ -100,7 +102,7 @@ class VideoCell : BaseCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Youtube Video 1"
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         return label
     }()
     
@@ -110,10 +112,10 @@ class VideoCell : BaseCell {
         textView.text = "Youtube Channel 1"
         textView.textContainerInset = UIEdgeInsets(top: 0, left: -4, bottom: 0, right: 0)
         textView.textColor = UIColor.lightGray
+        textView.isEditable = false
+        textView.isSelectable = false
         return textView
     }()
-    
-    var titleLabelHeightConstraint: NSLayoutConstraint?
     
     override func setupViews() {
         addSubview(thumbnailImageView)
@@ -142,8 +144,8 @@ class VideoCell : BaseCell {
         addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .right, relatedBy: .equal, toItem: thumbnailImageView, attribute: .right, multiplier: 1, constant: 0))
         
         //height constraint
-        titleLabelHeightConstraint = NSLayoutConstraint(item: titleLabel, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 44)
-        addConstraint(titleLabelHeightConstraint!)
+//        titleLabelHeightConstraint = NSLayoutConstraint(item: titleLabel, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 44)
+//        addConstraint(titleLabelHeightConstraint!)
         
         //subtitleTextView
         //top constraint

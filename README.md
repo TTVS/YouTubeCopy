@@ -1,2 +1,2 @@
 # YouTubeCopy
-implementation of an older version of youtube (for educational purposes only)
+implementation of an older version of youtube on iOS (for educational purposes only)
